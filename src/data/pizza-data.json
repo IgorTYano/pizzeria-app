@@ -1,0 +1,44 @@
+[
+    {
+        "key": "P001",
+        "name": "Margherita",
+        "img": "/images/item-margherita.webp",
+        "price": 18.99
+    },
+    {
+        "key": "P002",
+        "name": "Pepperoni",
+        "img": "/images/item-pepperoni.webp",
+        "price": 17.99
+    },
+    {
+        "key": "P003",
+        "name": "Veggie",
+        "img": "/images/item-veggie.webp",
+        "price": 18.99
+    },
+    {
+        "key": "P004",
+        "name": "Hawaiian",
+        "img": "/images/item-hawaiian.webp",
+        "price": 17.99
+    },    
+    {
+        "key": "P005",
+        "name": "Chicken BBQ",
+        "img": "/images/item-chickenbbq.webp",
+        "price": 18.99
+    },    
+    {
+        "key": "D001",
+        "name": "Coke Can 12oz.",
+        "img": "/images/item-cola.webp",
+        "price": 2.99
+    },
+    {
+        "key": "D002",
+        "name": "Bottled Water",
+        "img": "/images/item-water.webp",
+        "price": 1.99
+    }
+]
