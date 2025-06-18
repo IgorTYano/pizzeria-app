@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoAdd } from "react-icons/io5";
+import { ShopContext } from "../context/shopContext";
 
 interface ItemCardProps {
-  id: string;
+  id: number;
   name: string;
   img: string;
   price: number;
@@ -10,6 +11,15 @@ interface ItemCardProps {
 }
 
 const ItemCard = (props: ItemCardProps) => {
+  const context = useContext(ShopContext);
+  
+  if (!context) {
+    throw new Error('ItemCard must be used within a ShopContextProvider');
+  }
+  
+  const { addToCart } = context;
+  const cartItemAmount = context.cartItems[props.id];
+
   return (
     <div className="flex h-auto min-h-40 w-full flex-col overflow-hidden rounded-lg bg-zinc-900 shadow-lg transition-all duration-300 hover:border-amber-400 hover:shadow-xl sm:flex-row">
       <div className="h-32 w-full overflow-hidden sm:min-h-full sm:w-24">
@@ -23,7 +33,6 @@ const ItemCard = (props: ItemCardProps) => {
       <div className="flex flex-1 flex-col p-3">
         <h3 className="text-md mb-1 line-clamp-2 font-[Fairplay] font-bold text-white sm:text-base md:text-xl">
           {props.name}
-          <span className="m-1 text-xs text-zinc-700">{props.id}</span>
         </h3>
         <div className="mt-auto flex items-center justify-between pt-2">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
@@ -39,6 +48,7 @@ const ItemCard = (props: ItemCardProps) => {
           <button
             className="cursor-pointer rounded-sm bg-amber-500 p-2 text-sm font-medium whitespace-nowrap text-black transition-colors hover:bg-amber-400"
             aria-label={`Add ${props.name} to cart`}
+            onClick={() => {addToCart(props.id)}}
           ><IoAdd /></button>
         </div>
       </div>

@@ -1,18 +1,16 @@
-import { useState } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Home from "./pages/Home/Home";
 import Menu from "./pages/Menu/Menu";
+import ShopContextProvider from "./context/shopContext";
 
 const Layout = () => {
-  const [openCart, setOpenCart] = useState(false);
-  
   return (
     <>
-      <Header openCart={openCart} setOpenCart={setOpenCart} />
-      <Cart openCart={openCart} setOpenCart={setOpenCart} />
+      <Header />
+      <Cart />
       <Outlet />
     </>
   );
@@ -44,8 +42,11 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const [openCart, setOpenCart] = useState(false);
-  return <RouterProvider router={router} />;
+  return (
+    <ShopContextProvider>
+      <RouterProvider router={router} />
+    </ShopContextProvider>
+  );
 };
 
 export default App;

@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoClose } from "react-icons/io5";
 import { iconButtonClass } from "./Header";
+import { ShopContext } from "../context/shopContext";
+import itemData from "../data/menu-data.json";
+import CartItem from "./CartItem";
 
-type CartProps = {
-  openCart: boolean;
-  setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-const Cart: React.FC<CartProps> = ({ openCart, setOpenCart }) => {
+const Cart: React.FC = () => {
+  const { cartItems, openCart, setOpenCart } = useContext(ShopContext)!;
   return (
     <div
       className={`fixed top-0 z-10 flex h-screen w-[300px] flex-col justify-between border-l border-amber-400 bg-[#191919] text-white duration-150 ${openCart ? "right-[-300px]" : "right-0"}`}
@@ -21,11 +20,28 @@ const Cart: React.FC<CartProps> = ({ openCart, setOpenCart }) => {
           <IoClose />
         </button>
       </header>
-      <article></article>
+
+      <div>
+        {itemData.map((item) => {
+          if (cartItems[item.id] !== 0) {
+            return (
+              <CartItem
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                img={item.img}
+                price={item.price}
+                priceDiscounted={item.priceOriginal ?? undefined}
+              />
+            );
+          }
+        })}
+      </div>
+
       <div className="m-2">
         <p className="w-full border-t text-center">Total: $</p>
         <button className="mt-2 w-full cursor-pointer border duration-150 hover:bg-white hover:text-black">
-          Finish
+          Checkout
         </button>
       </div>
     </div>

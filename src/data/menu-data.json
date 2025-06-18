@@ -1,69 +1,69 @@
 [
   {
-    "id": "S001",
+    "id": 1,
     "name": "Hawaiian & Coke Special Offer",
     "img": "/images/deal-hawaiian-cola.webp",
     "price": 18.99,
     "priceOriginal": 20.99
   },
   {
-    "id": "P001",
+    "id": 2,
     "name": "Margherita",
     "img": "/images/item-margherita.webp",
     "price": 18.99,
     "priceOriginal": null
   },
   {
-    "id": "P002",
+    "id": 3,
     "name": "Pepperoni",
     "img": "/images/item-pepperoni.webp",
     "price": 17.99,
     "priceOriginal": null
   },
   {
-    "id": "P003",
+    "id": 4,
     "name": "Veggie",
     "img": "/images/item-veggie.webp",
     "price": 18.99,
     "priceOriginal": null
   },
   {
-    "id": "P004",
+    "id": 5,
     "name": "Hawaiian",
     "img": "/images/item-hawaiian.webp",
     "price": 17.99,
     "priceOriginal": null
   },
   {
-    "id": "P005",
+    "id": 6,
     "name": "Chicken BBQ",
     "img": "/images/item-chickenbbq.webp",
     "price": 18.99,
     "priceOriginal": null
   },
   {
-    "id": "P006",
+    "id": 7,
     "name": "Cheese",
     "img": "/images/item-cheese.webp",
     "price": 16.99,
     "priceOriginal": null
   },
   {
-    "id": "D001",
+    "id": 8,
     "name": "Coke Can 12oz.",
     "img": "/images/item-cola.webp",
     "price": 2.99,
     "priceOriginal": null
   },
   {
-    "id": "D002",
+    "id": 9,
     "name": "Bottled Water",
     "img": "/images/item-water.webp",
     "price": 1.99,
     "priceOriginal": null
   },
   {
-    "id": "D003",
+    "id": 10,
     "name": "Orange Juice",
     "img": "/images/item-juice.webp",
     "price": 2.99,
