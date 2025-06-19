@@ -7,6 +7,7 @@ export interface ShopContextType {
   removeFromCart: (itemId: number) => void;
   openCart: boolean;
   setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
+  updateCartItemAmount: (newAmount: number, itemId: number) => void;
 }
 
 export const ShopContext = createContext<ShopContextType | null>(null);
@@ -25,7 +26,8 @@ const getDefaultCart = () => {
 
 const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) => {
   const [openCart, setOpenCart] = useState(false);
-  const [cartItems, setCartItems] = useState<Record<number, number>>(getDefaultCart());
+  const [cartItems, setCartItems] =
+    useState<Record<number, number>>(getDefaultCart());
 
   const addToCart = (itemId: number) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -33,6 +35,10 @@ const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) => {
 
   const removeFromCart = (itemId: number) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+  };
+
+  const updateCartItemAmount = (newAmount: number, itemId: number) => {
+    setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
 
   return (
@@ -43,6 +49,7 @@ const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) => {
         removeFromCart,
         openCart,
         setOpenCart,
+        updateCartItemAmount,
       }}
     >
       {props.children}

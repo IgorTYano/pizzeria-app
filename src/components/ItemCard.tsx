@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { IoAdd } from "react-icons/io5";
 import { ShopContext } from "../context/shopContext";
 
@@ -12,11 +12,11 @@ interface ItemCardProps {
 
 const ItemCard = (props: ItemCardProps) => {
   const context = useContext(ShopContext);
-  
+
   if (!context) {
-    throw new Error('ItemCard must be used within a ShopContextProvider');
+    return null;
   }
-  
+
   const { addToCart } = context;
   const cartItemAmount = context.cartItems[props.id];
 
@@ -48,8 +48,12 @@ const ItemCard = (props: ItemCardProps) => {
           <button
             className="cursor-pointer rounded-sm bg-amber-500 p-2 text-sm font-medium whitespace-nowrap text-black transition-colors hover:bg-amber-400"
             aria-label={`Add ${props.name} to cart`}
-            onClick={() => {addToCart(props.id)}}
-          ><IoAdd /></button>
+            onClick={() => {
+              addToCart(props.id);
+            }}
+          >
+            <IoAdd />
+          </button>
         </div>
       </div>
     </div>

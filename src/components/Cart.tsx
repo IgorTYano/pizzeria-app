@@ -9,7 +9,7 @@ const Cart: React.FC = () => {
   const { cartItems, openCart, setOpenCart } = useContext(ShopContext)!;
   return (
     <div
-      className={`fixed top-0 z-10 flex h-screen w-[300px] flex-col justify-between border-l border-amber-400 bg-[#191919] text-white duration-150 ${openCart ? "right-[-300px]" : "right-0"}`}
+      className={`fixed top-0 z-10 flex h-screen w-[300px] flex-col justify-between border-l border-amber-400 bg-[#191919] text-white duration-150 ${openCart ? "right-0" : "right-[-300px]"}`}
     >
       <header className="flex items-center justify-between">
         <h1 className="ml-2 text-xl font-bold">Shopping Cart</h1>

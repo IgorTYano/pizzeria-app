@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
@@ -23,22 +23,22 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "menu",
-        element: <Menu />
+        element: <Menu />,
       },
       {
         path: "contact",
-        element: <div>Contact Page</div>
+        element: <div>Contact Page</div>,
       },
       {
         path: "*",
-        element: <PageNotFound />
-      }
-    ]
-  }
+        element: <PageNotFound />,
+      },
+    ],
+  },
 ]);
 
 const App = () => {
