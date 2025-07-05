@@ -64,7 +64,7 @@ const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) => {
         openCart,
         setOpenCart,
         updateCartItemAmount,
-        getTotalValue: getTotalValue()
+        getTotalValue: getTotalValue().toFixed(2)
       }}
     >
       {props.children}
