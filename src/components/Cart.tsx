@@ -6,7 +6,7 @@ import itemData from "../data/menu-data.json";
 import CartItem from "./CartItem";
 
 const Cart: React.FC = () => {
-  const { cartItems, openCart, setOpenCart } = useContext(ShopContext)!;
+  const { cartItems, openCart, setOpenCart, getTotalValue } = useContext(ShopContext)!;
   return (
     <div
       className={`fixed top-0 z-10 flex h-screen w-[300px] flex-col justify-between border-l border-amber-400 bg-[#191919] text-white duration-150 ${openCart ? "right-0" : "right-[-300px]"}`}
@@ -39,7 +39,7 @@ const Cart: React.FC = () => {
       </div>
 
       <div className="m-2">
-        <p className="w-full border-t text-center">Total: $</p>
+        <p className="w-full border-t text-center">Total: ${getTotalValue}</p>
         <button className="mt-2 w-full cursor-pointer border duration-150 hover:bg-white hover:text-black">
           Checkout
         </button>

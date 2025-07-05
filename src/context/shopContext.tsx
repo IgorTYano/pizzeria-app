@@ -8,6 +8,7 @@ export interface ShopContextType {
   openCart: boolean;
   setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
   updateCartItemAmount: (newAmount: number, itemId: number) => void;
+  getTotalValue: React.ReactNode;
 }
 
 export const ShopContext = createContext<ShopContextType | null>(null);
@@ -28,6 +29,19 @@ const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) => {
   const [openCart, setOpenCart] = useState(false);
   const [cartItems, setCartItems] =
     useState<Record<number, number>>(getDefaultCart());
+
+  const getTotalValue = () => {
+    let totalAmount = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo = itemData.find((product) => product.id === Number(item));
+        if (itemInfo !== undefined) {
+          totalAmount += cartItems[item] * itemInfo.price;
+        } 
+      }
+    }
+    return totalAmount;
+  }
 
   const addToCart = (itemId: number) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -50,6 +64,7 @@ const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) => {
         openCart,
         setOpenCart,
         updateCartItemAmount,
+        getTotalValue: getTotalValue()
       }}
     >
       {props.children}
